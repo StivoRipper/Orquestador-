@@ -149,12 +149,12 @@ const createOrderMP = async (req, res) => {
       },
     ],
     back_urls: {
-      success: `${HOST}/payed.html`,
-      failure: `${HOST}/`,
-      pending: `${HOST}/`,
+      success: "http://localhost:4000",
+      failure: "http://localhost:4000",
+      pending: "http://localhost:4000",
     },
     notification_url:
-      "https://28b6-2806-106e-5-2df5-90f0-f7ed-65fd-f1d1.ngrok.io/webhook",
+      "https://6fa2-2806-106e-5-917e-2cdc-c1ae-414d-551a.ngrok.io/webhook",
   });
 
   console.log(result);

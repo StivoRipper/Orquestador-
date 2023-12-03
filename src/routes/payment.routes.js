@@ -19,9 +19,9 @@ router.get("/capture-order", captureOrder);
 router.get("/cancel-payment", cancelPayment);
 
 router.post("/create-order-mp", createOrderMP);
-router.get("/success-mp", (req, res) => res.redirect("/payed.html"));
-router.get("/failure", (req, res) => res.redirect("/"));
-router.get("/pending", (req, res) => res.send("/"));
+router.get("/success-mp", (req, res) => res.redirect("success-mp"));
+router.get("/failure", (req, res) => res.redirect("failure"));
+router.get("/pending", (req, res) => res.send("pending"));
 router.post("/webhook", receiveWebhook);
 
 module.exports = router;
