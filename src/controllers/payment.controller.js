@@ -136,7 +136,7 @@ const HOST = "http://localhost: " + PORT;
 const createOrderMP = async (req, res) => {
   mercadopago.configure({
     access_token:
-      "TEST-5491748687659483-111102-b435148bcf6f3d08e24a9cc92dfb3adc-1545343380",
+      "TEST-1722260840556788-112900-6bbb3ad240aad86127b2b90617f90321-1545343380",
   });
 
   const result = await mercadopago.preferences.create({
