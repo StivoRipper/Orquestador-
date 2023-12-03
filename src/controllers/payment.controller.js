@@ -95,8 +95,8 @@ const createOrder = async (req, res) => {
       },
     ],
     application_context: {
-      return_url: `http://localhost:5000/capture-order`,
-      cancel_url: "http://localhost:5000/cancel-payment",
+      return_url: `http://localhost:4000/capture-order`,
+      cancel_url: "http://localhost:4000/cancel-payment",
     },
   };
 
