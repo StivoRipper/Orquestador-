@@ -34,7 +34,7 @@
     </style>
   </head>
   <body>
-    <h1>Carrito de Compras</h1>
+    <h1>Tienda Online</h1>
     <div class="container-items">
 			<div class="item">
 				<figure>
@@ -99,13 +99,51 @@
 					<h2>Tenis Nike</h2>
 					<p class="price">$50</p>
 					<button onclick="agregarAlCarrito('Tenis Nike', 50)">Agregar Tenis Nike</button>
+          <div id="carrito">
+            <h2>Carrito de Compras</h2>
+            <ul id="listaProductos"></ul>
+            <p>Total a Pagar: $<span id="totalPagar">0</span></p>
+          </div>
 				</div>
 			</div>
 		</div>
         <button id="pagarConStripe">Pagar con Stripe</button>
 		<button id="pagarConPayPal">Pagar con PayPal</button>
 		<button id="checkoutMP">Pagar con MercadoPago</button>
+
+
         <script>
+          // Creamos un objeto carrito para almacenar los productos
+const carrito = [];
+
+// Función para agregar productos al carrito
+function agregarAlCarrito(nombre, precio) {
+  const producto = { nombre, precio };
+  carrito.push(producto);
+  mostrarCarrito();
+}
+
+// Función para mostrar el carrito y calcular el total
+function mostrarCarrito() {
+  const listaProductos = document.getElementById("listaProductos");
+  const totalPagarElement = document.getElementById("totalPagar");
+
+  // Reiniciamos la lista y el total
+  listaProductos.innerHTML = "";
+  let totalPagar = 0;
+
+  // Recorremos el carrito para mostrar los productos
+  carrito.forEach((producto) => {
+    const listItem = document.createElement("li");
+    listItem.innerText = `${producto.nombre} - $${producto.precio}`;
+    listaProductos.appendChild(listItem);
+    totalPagar += producto.precio;
+  });
+
+  // Mostramos el total a pagar
+  totalPagarElement.innerText = totalPagar;
+}
+
 const checkoutStripe = document.getElementById("pagarConStripe");
   checkoutStripe.addEventListener("click", async () => {
     try {
