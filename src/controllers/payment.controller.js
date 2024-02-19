@@ -154,7 +154,11 @@ const createOrderMP = async (req, res) => {
       pending: "http://localhost:4000",
     },
     notification_url:
+<<<<<<< Updated upstream
       "https://6fa2-2806-106e-5-917e-2cdc-c1ae-414d-551a.ngrok.io/webhook",
+=======
+      "https://dea1-2806-106e-5-917e-2cdc-c1ae-414d-551a.ngrok.io/webhook",
+>>>>>>> Stashed changes
   });
 
   console.log(result);
