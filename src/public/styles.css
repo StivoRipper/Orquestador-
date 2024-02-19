@@ -30,9 +30,43 @@ img{
 
 /* Header */
 header{
+    float: right;
+    margin: 0 15px 0 0;
+}
+
+.nav {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    padding: 30px 0 40px 0;
+    padding: 30px 0 40 px 0;
+}
+
+#Carrito-de-Compras{
+    position: relative;
+    font-size: 1.8rem;
+    color: #000;
+    cursor: pointer;
+}
+
+#Carrito-de-Compras[data-quantity="0"]::after{
+    content: "";
+}
+
+#Carrito-de-Compras[data-quantity]::after{
+    content: attr(data-quantity);
+    position: absolute;
+    top:0;
+    right: -11px;
+    width: 20px;
+    height: 20px;
+    background:#000;
+    border-radius: 50%;
+    color:#fff;
+    font-size: 12px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .container-icon{

@@ -12,25 +12,15 @@ const createSession = async (req, res) => {
       {
         price_data: {
           product_data: {
-            name: "Xbox one s",
+            name: "Laptop Gamer",
             description: "Consola",
           },
-          unit_amount: 1000,
-          currency: "usd",
-        },
-        quantity: 3,
-      },
-      {
-        price_data: {
-          product_data: {
-            name: "Laptop ",
-            description: "Gaming Laptop",
-          },
-          unit_amount: 1000,
-          currency: "usd",
+          unit_amount: 80,
+          currency: "USD",
         },
         quantity: 1,
       },
+      
     ],
     mode: "payment",
     success_url: "http://localhost:4000/succes",
@@ -154,11 +144,7 @@ const createOrderMP = async (req, res) => {
       pending: "http://localhost:4000",
     },
     notification_url:
-<<<<<<< Updated upstream
       "https://6fa2-2806-106e-5-917e-2cdc-c1ae-414d-551a.ngrok.io/webhook",
-=======
-      "https://dea1-2806-106e-5-917e-2cdc-c1ae-414d-551a.ngrok.io/webhook",
->>>>>>> Stashed changes
   });
 
   console.log(result);
