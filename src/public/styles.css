@@ -1,3 +1,36 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Text:wght@100..900&display=swap');
+
+*{
+    font-family: "Big Shoulders Text",sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
+    text-decoration: none;
+    list-style: none;
+}
+
+body{
+    color: #000;
+    background: #fff;
+}
+
+img {
+    width: 100%;
+}
+
+section{
+    padding: 4rem 0 2rem;
+}
+
+.container{
+    max-width: 1070px;
+    margin: auto;
+    width: 100%;
+}
+
 /* Globales */
 *::after,
 *::before,
@@ -24,21 +57,27 @@ body{
     cursor: pointer;
 }
 
-img{
-    max-width: 100%;
-}
-
 /* Header */
 header{
-    float: right;
-    margin: 0 15px 0 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
 }
 
 .nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 30px 0 40 px 0;
+    padding: 25px 0;
+}
+
+.logo{
+    font-size: 1.5rem;
+    color: #000;
+    text-transform: uppercase;
+    font-weight: 700;
 }
 
 #Carrito-de-Compras{
@@ -68,6 +107,8 @@ header{
     align-items: center;
     justify-content: center;
 }
+
+
 
 .container-icon{
     position: relative;
