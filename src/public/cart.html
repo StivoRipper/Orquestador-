@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrito</title>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <!--Link to CCS-->
+    <link rel="stylesheet" href="styles.css" />
+    <!--Box Icons-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' 
+    rel='stylesheet'/>
+    <style>
+    .producto-card {
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin: 10px;
+      text-align: center;
+      width: 200px;
+      display: inline-block;
+    }
+    .producto-img {
+      max-width: 100%;
+      height: auto;
+    }
+    .agregar-carrito-btn {
+      margin-top: 10px;
+      background-color: #4caf50;
+      color: white;
+      padding: 10px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+  </head>
+  <body>
+    <!--Header-->
+    <header>
+      <div class="nav container">
+        <!--Menu-->
+        <i class='bx bx-menu' id="menu"></i>
+        <a href="index.html" class="Tienda-Online">Tienda Online</a>
+        <!--Navbar-->
+        <div class="navbar">
+          <a href="#" class="nav_link">Hombre</a>
+          <a href="#" class="nav_link">Mujer</a>
+          <a href="#" class="nav_link">Accesorios</a>
+        </div>
+        <!--Carrito-de-Compras-->
+        <a href="cart.html">
+          <i class='bx bx-cart-add' id="Carrito-de-Compras" data-quantity="0"></i>
+        </a>
+      </div>
+    </header>
+    <!--CART-->
+    <section class="cart-container container">
+        <a href="index.html" class="back-homepage">
+            <i class='bx bx-chevron-left'></i>
+            <span>Volver</span>
+        </a>
+        <h2 class="cart-s-title">Carrito de Compra</h2>
+        <div class="cart-data">
+            <div class="cartItems"></div>
+            <div class="cart-t">
+                <div id="cartToltal"></div>
+                <a href="#" class="checkout-btn">Checkout</a>
+            </div>
+        </div>
+    </section>
+    <!--LINK TO JS-->
+    <script src="main.js"></script>
+  </body>
+</html>
