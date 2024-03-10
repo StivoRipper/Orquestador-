@@ -1,19 +1,17 @@
-const { domainToUnicode } = require("url");
-
 const products = [
   {
     id: 1,
     title: "Laptop Gamer",
     price: 849.99,
     image:
-      "https://images.unsplash.com/photo-1600861195091-690c92f1d2cc?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1611078489935-0cb964de46d6?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wJTIwZ2FtZXJ8ZW58MHx8MHx8fDI%3D",
   },
   {
     id: 2,
     title: "Audifonos Hi-Res",
     price: 769.99,
     image:
-      "https://images.unsplash.com/photo-1546435770-a3e426bf472b?q=80&w=1465&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YXVkaWZvbm9zfGVufDB8fDB8fHwy",
   },
   {
     id: 3,
@@ -60,27 +58,101 @@ const products = [
 ];
 
 //obtener lista de productos y elementos
-const productlist = document.getElementById("productList");
+const productList = document.getElementById("productList");
 const cartItemsElement = document.getElementById("cartItems");
-const cartTotalElement = document.getElementById("cartToltal");
+const cartTotalElement = document.getElementById("cartTotal");
 
 // Tienda Cart Items en local Storage
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 //Render Products on Page
 function renderProducts() {
-    productlist.innerHTML = products.map((product) => `
-        <div class="product">
-          <img src="${product.image}" alt="" class="product-img">
-          <div class="product-info">
-            <h2 class="product-title">
-            </h2>
-              <p class="product-price"></p>
-              <a class="add-to-cart">Añadir a Carrito</a>
-          </div>
-        </div>
+  productList.innerHTML = products
+    .map(
+      (product) => `
+      <div class="product">
+      <img src="${product.image}" alt="${product.title}" class="product-img">
+      <div class="product-info">
+        <h2 class="product-title">${product.title}</h2>
+          <p class="product-price">$${product.price.toFixed(2)}</p>
+          <a class="add-to-cart" data-id="${product.id}">Añadir a Carrito</a>
+      </div>
+    </div>
         `
     )
     .join("");
+
+  // añadir al carro
+  const addToCartButtons = document.getElementsByClassName("add-to-cart");
+  for (let i = 0; i < addToCartButtons.length; i++) {
+    const addToCartButton = addToCartButtons[i];
+    addToCartButton.addEventListener("click", addToCart);
+  }
 }
+
+//añadir un producto
+function addToCart(event) {
+  const productID = parseInt(event.target.dataset.id);
+  const product = products.find((product) => product.id === productID);
+
+  if (product) {
+    //si el producto esta realmente en carro
+    const exixtingItem = cart.find((item) => item.id === product.id);
+
+    if (exixtingItem) {
+      exixtingItem.quantity++;
+    } else {
+      const cartItem = {
+        id: product.id,
+        title: product.title,
+        price: product.price,
+        image: product.image,
+        quantity: 1,
+      };
+      cart.push(cartItem);
+    }
+    renderCartItems();
+    saveToLocalStorage();
+  }
+}
+
+// guardar en la tienda
+function saveToLocalStorage() {
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+// Renderizar productos a carrito
+function renderCartItems() {
+  cartItemsElement.innerHTML = cart
+    .map(
+      (item) => `
+      <div class="cart-item">
+      <img src="${item.image}" alt="${item.title}" />
+      <div class="cart-item-info">
+        <h2 class="cart-item-title">${item.title}</h2>
+        <input 
+          class="cart-item-quantity" type="number" 
+          name="" 
+          min="1" 
+          value="${item.quantity}" 
+          data-id="${item.id}"
+        />
+      </div>
+      <h2 class="cart-item-price">$${item.price}</h2>
+      <button class="remove-from-cart" data-id="${item.id}">Eliminar</button>
+    </div>
+    `
+    )
+    .join("");
+}
+
+//checar si esta sobre la pagina de carrito
+
+if (window.location.pathname.includes("cart.html")) {
+  renderCartItems();
+} else {
+  renderProducts();
+}
+
 renderProducts();
+renderCartItems();
