@@ -14,6 +14,5 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static(path.resolve('src/public')))
 
-
 const port = process.env.PORT || 4000;
 app.listen(port, () => console.log('Server is running...'));
