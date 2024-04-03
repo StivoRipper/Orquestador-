@@ -50,6 +50,7 @@ function removeCartItem(event) {
   buttonClicked.parentElement.remove();
   updatetotal();
   saveCartItems();
+  updateCartIcon();
 }
 
 //Quantity change
@@ -194,4 +195,12 @@ function updateCartIcon() {
   }
   var cartIcon = document.querySelector("#cart-icon");
   cartIcon.setAttribute("data-quantity", quantity);
+}
+
+//limpiar carrito despues de pago
+function clearCart() {
+  var cartContent = document.getElementsByClassName("cart-content")[0];
+  cartContent.innerHTML = "";
+  updatetotal();
+  localStorage.removeItem("cartItems");
 }
