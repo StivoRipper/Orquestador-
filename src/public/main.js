@@ -84,7 +84,7 @@ function addProductToCart(title, price, productImg) {
   var cartItemsNames = cartItems.getElementsByClassName("cart-product-title");
   for (var i = 0; i < cartItemsNames.length; i++) {
     if (cartItemsNames[i].innerText == title) {
-      alert("Tu tienes añadido ya un product en tu carrito");
+      alert("Tu tienes añadido ya un producto en tu carrito");
       return;
     }
   }
@@ -130,6 +130,7 @@ function updatetotal() {
     var quantity = quantityElement.value;
     total += price * quantity;
   }
+
   //si el precio tiene centavos
   total = Math.round(total * 100) / 100;
   document.getElementsByClassName("total-price")[0].innerText = "$" + total;

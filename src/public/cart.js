@@ -2,7 +2,7 @@ const payBtn = document.querySelector(".btn-buy");
 
 payBtn.addEventListener("click", () => {
   fetch("/stripe-checkout", {
-    method: "POST",
+    method: "post",
     headers: new Headers({ "Content-Type": "application/Json" }),
     body: JSON.stringify({
       items: JSON.parse(localStorage.getItem("cartItems")),
