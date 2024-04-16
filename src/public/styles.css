@@ -312,6 +312,35 @@ header{
     font-weight: 500;
 }
 
+.button-container {
+    display: flex; /* Establece el contenedor de botones como un flexbox */
+    justify-content: space-between; /* Distribuye el espacio entre los botones */
+    width: 100%; /* Opcional: asegura que el contenedor de botones ocupe todo el ancho */
+    max-width: 600px; /* Limita la anchura máxima para mantener la coherencia con el texto */
+    text-align: center;
+}
+
+.mp-btn,
+.pp-btn {
+    flex: 1; /* Hace que los botones tengan el mismo tamaño */
+    margin: 0 5px; /* Espacio entre los botones */
+    padding: 12px 20px;
+    border-radius: 2rem;
+    background: var(--text-color);
+    color: var(--bg-color);
+    font-size: 1rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    /*margin: 1.5rem auto 0 auto;*/
+    width: 50%;
+    text-align: center;
+    border: none;
+    font-style: italic;
+    cursor: pointer;
+}
+
+
 /* haciendo responsiva */
 @media (max-width: 1080px){
     .nav {

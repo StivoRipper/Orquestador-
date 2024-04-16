@@ -15,3 +15,20 @@ payBtn.addEventListener("click", () => {
     })
     .catch((err) => console.log(err));
 });
+
+// const payMP = document.querySelector(".mp-btn");
+// payMP.addEventListener("click", () => {
+//   fetch("/MP-checkout", {
+//     method: "post",
+//     headers: new Headers({ "Content-Type": "application/Json" }),
+//     body: JSON.stringify({
+//       items: JSON.parse(localStorage.getItem("cartItems")),
+//     }),
+//   })
+//     .then((res) => res.json())
+//     .then((url) => {
+//       location.href = url;
+//       clearCart();
+//     })
+//     .catch((err) => console.log(err));
+// });
