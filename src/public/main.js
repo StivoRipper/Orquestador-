@@ -147,7 +147,7 @@ function saveCartItems() {
   for (var i = 0; i < cartBoxes.length; i++) {
     cartBox = cartBoxes[i];
     var titleElement = cartBox.getElementsByClassName("cart-product-title")[0];
-    var priceElement = cart.getElementsByClassName("cart-price")[0];
+    var priceElement = cartBox.getElementsByClassName("cart-price")[0];
     var quantityElement = cartBox.getElementsByClassName("cart-quantity")[0];
     var productImg = cartBox.getElementsByClassName("cart-img")[0].src;
 
